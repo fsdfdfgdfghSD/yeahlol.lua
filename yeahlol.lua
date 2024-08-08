@@ -12,17 +12,17 @@ return function(...)
   }
   local meta = {}
 
-  function cls._init()
+  function cls.__init__()
   end
 
-  function cls:_new()
+  function cls:__new__()
     local instance = setmetatable({}, self)
     return instance
   end
 
   function meta:__call(...)
-    local instance = self:_new(...)
-    instance:_init(...)
+    local instance = self:__new_(...)
+    instance:__init__(...)
     return instance
   end
 
